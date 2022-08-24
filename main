@@ -1,0 +1,201 @@
+-- dsffsd
+-- dasds
+
+-- sda
+
+local h = Instance.new("ScreenGui")
+local Main = Instance.new("ImageLabel")
+local Top = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Username = Instance.new("TextBox")
+local BackButton = Instance.new("TextButton")
+local HelicopterButton = Instance.new("TextButton")
+
+--dfgfd
+
+h.Name = "h"
+h.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+h.ResetOnSpawn = false
+
+Main.Name = "Main"
+Main.Parent = h
+Main.Active = true
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BorderSizePixel = 0
+Main.Draggable = true
+Main.Position = UDim2.new(0.174545467, -277, 0.459574401, 85)
+Main.Size = UDim2.new(0, 454, 0, 267)
+Main.Image = "rbxassetid://2005276185"
+
+Top.Name = "Top"
+Top.Parent = Main
+Top.BackgroundColor3 = Color3.fromRGB(57, 57, 57)
+Top.BorderSizePixel = 0
+Top.Size = UDim2.new(0, 454, 0, 44)
+
+Title.Name = "Title"
+Title.Parent = Top
+Title.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0, 0, 0.295454562, 0)
+Title.Size = UDim2.new(0, 454, 0, 30)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "FE Trolling Gui (made by yt: damageXL)"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+Username.Name = "Username"
+Username.Parent = Main
+Username.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+Username.BorderSizePixel = 0
+Username.Position = UDim2.new(0.0704845786, 0, 0.235751942, 0)
+Username.Size = UDim2.new(0, 388, 0, 62)
+Username.Font = Enum.Font.SourceSans
+Username.PlaceholderText = "Who do you want to be trolled(can't not be shortened)"
+Username.Text = ""
+Username.TextColor3 = Color3.fromRGB(255, 255, 255)
+Username.TextScaled = true
+Username.TextSize = 14.000
+Username.TextWrapped = true
+
+BackButton.Name = "BackButton"
+BackButton.Parent = Main
+BackButton.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+BackButton.BorderSizePixel = 0
+BackButton.Position = UDim2.new(0.10352423, 0, 0.535661697, 0)
+BackButton.Size = UDim2.new(0, 359, 0, 50)
+BackButton.Font = Enum.Font.SourceSans
+BackButton.Text = "Cheese em' from behind"
+BackButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+BackButton.TextScaled = true
+BackButton.TextSize = 14.000
+BackButton.TextWrapped = true
+
+HelicopterButton.Name = "HelicopterButton"
+HelicopterButton.Parent = Main
+HelicopterButton.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+HelicopterButton.BorderSizePixel = 0
+HelicopterButton.Position = UDim2.new(0.105726875, 0, 0.754051089, 0)
+HelicopterButton.Size = UDim2.new(0, 359, 0, 50)
+HelicopterButton.Font = Enum.Font.SourceSans
+HelicopterButton.Text = "Surprise him"
+HelicopterButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+HelicopterButton.TextScaled = true
+HelicopterButton.TextSize = 14.000
+HelicopterButton.TextWrapped = true
+
+-- sdadas
+
+local function ZLDUI_fake_script() -- BackButton.LocalScript 
+	local script = Instance.new('LocalScript', BackButton)
+
+	local Username = script.Parent.Parent.Username
+	
+	local Open = false
+	
+	local You = game.Players.LocalPlayer
+	
+	local function notif(str,dur)
+		game:FindService("StarterGui"):SetCore("SendNotification", {
+			Title = "trolling gui",
+			Text = str,
+			Icon = "rbxassetid://2005276185",
+			Duration = dur or 3
+		})
+	end
+	
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		local Target = game.Workspace:WaitForChild(Username.Text)
+		
+		if Open == false then
+			notif("I'm cheese em' from behind target", 3)
+			Open = true
+			while true do
+				wait(0.01)
+				if Open == true then
+					You.Character.HumanoidRootPart.CFrame = Target.HumanoidRootPart.CFrame
+				end
+			end
+		else
+			Open = false
+			notif("I'm stopped", 3)
+		end
+	end)
+end
+coroutine.wrap(ZLDUI_fake_script)()
+local function VEHSQ_fake_script() -- HelicopterButton.LocalScript 
+	local script = Instance.new('LocalScript', HelicopterButton)
+
+	local Username = script.Parent.Parent.Username
+	
+	local Open = false
+	local OK = false
+	
+	local You = game.Players.LocalPlayer
+	
+	local function notif(str,dur)
+		game:FindService("StarterGui"):SetCore("SendNotification", {
+			Title = "trolling gui",
+			Text = str,
+			Icon = "rbxassetid://2005276185",
+			Duration = dur or 3
+		})
+	end
+	
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		
+		local Target = game.Workspace:WaitForChild(Username.Text)
+		
+		if Open == false then
+			Open = true
+			notif("suprised", 3)
+			while true do
+				wait(0.01)
+				if Open == true then
+					You.Character.HumanoidRootPart.CFrame = Target.Head.CFrame + Vector3.new(0, 6, 0)
+					local sayi = math.random(1,5)
+					if sayi == 1 then
+						You.Character.HumanoidRootPart.CFrame += Vector3.new(3, 0, 0)
+					elseif sayi == 2 then
+						You.Character.HumanoidRootPart.CFrame += Vector3.new(0, 0, 4)
+					elseif sayi == 3 then
+						You.Character.HumanoidRootPart.CFrame -= Vector3.new(0, 3, 0)
+					elseif sayi == 4 then
+						You.Character.HumanoidRootPart.CFrame = Target.HumanoidRootPart.CFrame
+						wait(0.01)
+						You.Character.HumanoidRootPart.CFrame = Target.HumanoidRootPart.CFrame
+					else
+						You.Character.HumanoidRootPart.CFrame = Target.HumanoidRootPart.CFrame + Vector3.new(2, 0, 0)
+						wait(0.01)
+						You.Character.HumanoidRootPart.CFrame = Target.HumanoidRootPart.CFrame + Vector3.new(2, 0, 0)
+					end
+				end
+			end
+		else
+			OK = true
+			Open = false
+			notif("I'm stopped", 3)
+		end
+	end)
+end
+coroutine.wrap(VEHSQ_fake_script)()
+local function LOYGDX_fake_script() -- Main.OpenClose 
+	local script = Instance.new('LocalScript', Main)
+
+	local UserInputService = game:GetService("UserInputService")
+	
+	UserInputService.InputBegan:Connect(function(Input)
+		if Input.KeyCode == Enum.KeyCode.Insert then
+			if script.Parent.Parent.Enabled == false then
+				script.Parent.Parent.Enabled = true
+			else
+				script.Parent.Parent.Enabled = false
+			end
+		end
+	end)
+end
+coroutine.wrap(LOYGDX_fake_script)()
